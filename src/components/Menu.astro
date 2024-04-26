@@ -1,0 +1,140 @@
+<nav>
+  <div class="menu">
+    <img src="logo.svg" alt="" />
+    <div class="menu-btn">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+  <div class="burger-menu">
+    <a href="">Læs mere om GirlTalk!</a>
+  </div>
+</nav>
+
+<style>
+  body {
+    margin: 0;
+  }
+  nav {
+    background-color: #fc4e5c;
+  }
+
+  img {
+    width: 200px;
+  }
+  a {
+    font-family: "Archivo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: 1.5rem;
+    color: #fff5eb;
+    max-width: 600px;
+    text-decoration: none;
+    margin-left: 2vw;
+  }
+  a:hover{
+    color: #f7c7d9;
+  }
+  .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  .menu-btn {
+    width: 44px;
+    height: 32px;
+    position: relative;
+    overflow: hidden;
+    z-index: 99;
+  }
+
+  .menu-btn:hover {
+    cursor: pointer;
+  }
+
+  .line {
+    background-color: rgb(255, 255, 255);
+    width: 32px;
+    height: 1.2px;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .line:nth-of-type(1) {
+    width: 20px;
+  }
+
+  .line:nth-of-type(2) {
+    width: 32px;
+    top: calc(50% - 9px);
+  }
+
+  .line:nth-of-type(3) {
+    width: 32px;
+    top: calc(50% + 9px);
+  }
+
+  /*.menu-btn.active {
+      position: fixed;
+      z-index:100;
+    }*/
+
+  .menu-btn.active .line:nth-of-type(1) {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(220deg);
+    overflow: hidden;
+  }
+
+  .menu-btn.active .line:nth-of-type(2) {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(220deg);
+    overflow: hidden;
+  }
+
+  .menu-btn.active .line:nth-of-type(3) {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(-220deg);
+    overflow: hidden;
+  }
+  /*burger menu*/
+  .burger-menu.active {
+    left: 0;
+    right: 0;
+  }
+
+  .burger-menu {
+    display: flex;
+    position: fixed;
+    top: 60px;
+    left: 105vw;
+    bottom: 0vh;
+    width: 100vw;
+    height: 10vh;
+    background-color: #273aaa;
+    z-index: 8;
+    transition: 1s;
+    justify-content: space-around;
+    flex-direction: column;
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  let menuBtn = document.querySelector(".menu-btn");
+  let globalMenu = document.querySelector(".burger-menu");
+
+  menuBtn.addEventListener("click", function () {
+    menuBtn.classList.toggle("active");
+    globalMenu.classList.toggle("active");
+  });
+</script>
