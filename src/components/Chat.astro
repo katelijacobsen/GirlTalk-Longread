@@ -1,9 +1,9 @@
 ---
-const { src, text } = Astro.props;
+const { src, text, width } = Astro.props;
 ---
 
 <div class="container">
-  <img src={`/GirlTalk-Longread/${src}`} alt="Illustration depicting the chatbubble" />
+  <img src={`/GirlTalk-Longread/${src}`} alt="Illustration depicting the chatbubble" width={width} />
   <div class="messages">
     <p>{text}</p>
   </div>
@@ -26,7 +26,7 @@ const { src, text } = Astro.props;
   }
 
   img {
-    width: 600px;
+    /* width: width; */
     margin: auto;
     opacity: 0.4;
     transition: 3s;
